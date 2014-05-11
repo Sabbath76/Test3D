@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--GLKit View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
                 <glkViewController preferredFramesPerSecond="30" id="LVB-YS-i5n" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="35K-dZ-Txy"/>
+                        <viewControllerLayoutGuide type="bottom" id="AAJ-xl-yFC"/>
+                    </layoutGuides>
                     <glkView key="view" contentMode="scaleToFill" id="bdc-N1-crn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outlet property="delegate" destination="LVB-YS-i5n" id="Ljh-5Y-KdC"/>
+                            <outletCollection property="gestureRecognizers" destination="Nu4-Fh-a1W" appends="YES" id="VJT-Q1-KgL"/>
+                            <outletCollection property="gestureRecognizers" destination="Yhu-Aw-pTe" appends="YES" id="kQ3-Yu-GFv"/>
+                            <outletCollection property="gestureRecognizers" destination="gvS-XY-p0S" appends="YES" id="3ef-Ce-Pb0"/>
+                        </connections>
                     </glkView>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Nu4-Fh-a1W">
+                    <connections>
+                        <action selector="handlePan:" destination="LVB-YS-i5n" id="rSx-SU-pGh"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="fev-pN-Cc4"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="Yhu-Aw-pTe">
+                    <connections>
+                        <action selector="handlePinch:" destination="LVB-YS-i5n" id="7bO-5M-Pfs"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="yrW-dD-URP"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="gvS-XY-p0S">
+                    <connections>
+                        <action selector="handleRotation:" destination="LVB-YS-i5n" id="ghG-b2-yOc"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="cD8-Zx-a7C"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
         </scene>
     </scenes>
